@@ -14,10 +14,18 @@
     flex-wrap: wrap;
     margin-left: 320px;
     border: solid red;
+    gap: 20px;
 }
 
 .item {
     width: 20em;
     height: 20em;
     border: solid;
+    display: grid;
+    grid-template-rows: 1fr 10fr;
+}
+
+.content {
+    justify-self: center;
+    align-self: center;
 }

@@ -87,9 +87,9 @@ const Model = (() => {
  * - hold refrences to UI elements
  */
 const View = (() => {
-    const todolistEl = document.querySelector('#todo_list-container'); // select the todo list container
-    const inputEl = document.querySelector("#todo_input"); // input field for the todo list
-    const addBtnEl = document.querySelector("#todo_add-btn"); // add button for the todo list
+    const todolistEl = document.querySelector('#list-container'); // select the todo list container
+    const inputEl = document.querySelector("#input"); // input field for the todo list
+    const addBtnEl = document.querySelector("#add-btn"); // add button for the todo list
 
     // method returns the value in the todo list input field
     const getInputValue = () => {
@@ -108,9 +108,9 @@ const View = (() => {
         todos.forEach((todo) => {
           const todoItemTemp = 
             `
-                <div id=${todo.id}>
-                    ${todo.content}
-                    <button class="todo_delete-btn">delete</button>
+                <div id=${todo.id} class="item">
+                  <button class="delete-btn">delete</button>
+                  <p class="content">${todo.content}</p>
                 </div>
             `;
           todosTemp += todoItemTemp;
@@ -168,7 +168,7 @@ const Controller = ((view, model) => {
         // console.log(element.className);
 
         // if the element clicked was the delete button
-        if (element.className === "todo_delete-btn") {
+        if (element.className === "delete-btn") {
             const id = element.parentElement.getAttribute("id"); // get the parent elements id (the todo item)
             
             model
