@@ -1,0 +1,17 @@
+{
+  "name": "mvc-todolist",
+  "version": "1.0.0",
+  "description": "A todo list build with JSON server and following MVC pattern",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "json-server": "npx json-server db.json",
+    "live-server" : "live-server --ignore=./db.json ."
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "json-server": "^1.0.0-beta.1",
+     "live-server": "^1.2.2"
+  }
+}
