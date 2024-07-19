@@ -1,3 +1,12 @@
 {
-    "todos": []
+  "todos": [
+    {
+      "id": "ed9d",
+      "content": "asd"
+    },
+    {
+      "id": "cc28",
+      "content": "da"
+    }
+  ]
 }

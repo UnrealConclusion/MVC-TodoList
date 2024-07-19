@@ -87,7 +87,7 @@ const Model = (() => {
  * - hold refrences to UI elements
  */
 const View = (() => {
-    const todolistEl = document.querySelector("#todo_list-container"); // select the todo list container
+    const todolistEl = document.querySelector('#todo_list-container'); // select the todo list container
     const inputEl = document.querySelector("#todo_input"); // input field for the todo list
     const addBtnEl = document.querySelector("#todo_add-btn"); // add button for the todo list
 
@@ -106,10 +106,13 @@ const View = (() => {
         let todosTemp = "";
     
         todos.forEach((todo) => {
-          const todoItemTemp = `<li id=${todo.id}>
-          <span>${todo.content}</span>
-          <button class="todo__delete-btn">delete</button>
-        </li>`;
+          const todoItemTemp = 
+            `
+                <div id=${todo.id}>
+                    ${todo.content}
+                    <button class="todo_delete-btn">delete</button>
+                </div>
+            `;
           todosTemp += todoItemTemp;
         });
     
@@ -124,7 +127,7 @@ const View = (() => {
         addBtnEl,
         todolistEl,
       };
-});
+})();
 
 /**
  * Controller Object
@@ -133,6 +136,7 @@ const View = (() => {
  */
 const Controller = ((view, model) => {
     const state = new model.state(); // create a new state for the todo list
+
 
     // function to setup event handler for the add button
     const setUpAddHandler = () => {
@@ -164,7 +168,7 @@ const Controller = ((view, model) => {
         // console.log(element.className);
 
         // if the element clicked was the delete button
-        if (element.className === "todo__delete-btn") {
+        if (element.className === "todo_delete-btn") {
             const id = element.parentElement.getAttribute("id"); // get the parent elements id (the todo item)
             
             model
@@ -200,7 +204,11 @@ const Controller = ((view, model) => {
     };
 })(View, Model);
 
+Controller.init();
+
+console.log(View.todolistEl);
+console.log(View.addBtnEl);
+
 console.log(APIs);
 console.log(Model);
 console.log(Controller);
-// Controller.init();
